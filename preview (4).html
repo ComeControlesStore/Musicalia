@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Musicalia | Investigación musical</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f5f7;
+    color:#202124;
+    line-height:1.7;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:#111827;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.2);
+}
+
+.header-inner{
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 25px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#d4af37;
+}
+
+nav{
+    display:flex;
+    gap:22px;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+    transition:.2s;
+}
+
+nav a:hover{
+    color:#d4af37;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:420px;
+    background:
+        linear-gradient(
+            rgba(15,23,42,.88),
+            rgba(15,23,42,.92)
+        );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:50px 20px;
+}
+
+.hero-content{
+    max-width:850px;
+    animation:aparecer .8s ease;
+}
+
+.hero small{
+    color:#d4af37;
+    letter-spacing:3px;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:64px;
+    margin:15px 0;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.hero p{
+    color:#d9dce1;
+    font-size:20px;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+main{
+    max-width:1050px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+section{
+    margin-bottom:75px;
+}
+
+.section-title{
+    font-size:34px;
+    margin-bottom:15px;
+    color:#111827;
+}
+
+.section-line{
+    width:60px;
+    height:4px;
+    background:#d4af37;
+    margin-bottom:30px;
+}
+
+.article{
+    background:white;
+    padding:35px;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.article p{
+    margin-bottom:18px;
+}
+
+.article p:last-child{
+    margin-bottom:0;
+}
+
+.article strong{
+    color:#111827;
+}
+
+/* =========================
+   COMPONENTES
+========================= */
+
+.intro{
+    background:#111827;
+    color:white;
+    padding:30px;
+    border-radius:10px;
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+.intro strong{
+    color:#d4af37;
+}
+
+.subsection-title{
+    margin:40px 0 20px;
+    font-size:26px;
+    color:#111827;
+}
+
+.components{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:27px;
+    border-radius:10px;
+    border-left:4px solid #d4af37;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 7px 20px rgba(0,0,0,.09);
+}
+
+.card h3{
+    margin-bottom:10px;
+    font-size:21px;
+    color:#111827;
+}
+
+.card p{
+    color:#555;
+}
+
+.secondary{
+    border-left-color:#777;
+}
+
+.secondary h3{
+    font-size:20px;
+}
+
+/* =========================
+   PREGUNTAS
+========================= */
+
+.glossary-search{
+    width:100%;
+    padding:16px 18px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:16px;
+    margin-bottom:30px;
+    outline:none;
+    background:white;
+}
+
+.glossary-search:focus{
+    border-color:#d4af37;
+}
+
+.glossary{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.term{
+    background:white;
+    padding:28px 30px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+    border-left:4px solid #111827;
+    transition:.2s;
+}
+
+.term:hover{
+    transform:translateY(-2px);
+}
+
+.term h3{
+    color:#111827;
+    font-size:23px;
+    margin-bottom:9px;
+}
+
+.term p{
+    color:#555;
+}
+
+/* =========================
+   PENTAGRAMA
+========================= */
+
+.pentagrama-intro{
+    margin-bottom:25px;
+}
+
+.pentagrama-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#111827;
+    color:#aaa;
+    text-align:center;
+    padding:35px 20px;
+    font-size:14px;
+}
+
+footer strong{
+    color:#d4af37;
+}
+
+/* =========================
+   ANIMACIÓN
+========================= */
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    nav{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .components,
+    .pentagrama-grid{
+        grid-template-columns:1fr;
+    }
+
+    .article{
+        padding:25px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .hero{
+        min-height:350px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    main{
+        padding:40px 15px;
+    }
+
+    .section-title{
+        font-size:29px;
+    }
+
+    .term{
+        padding:22px;
+    }
+
+    .term h3{
+        font-size:21px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-inner">
+
+        <div class="logo">
+            MUSICALIA<span>•</span>
+        </div>
+
+        <nav>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#que-es">
+                ¿Qué es?
+            </a>
+
+            <a href="#componentes">
+                Componentes
+            </a>
+
+            <a href="#preguntas">
+                Preguntas
+            </a>
+
+            <a href="#pentagrama">
+                Pentagrama
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <small>
+            INVESTIGACIÓN MUSICAL
+        </small>
+
+        <h1>
+            Musicalia
+        </h1>
+
+        <p>
+            Un espacio para conocer, comprender y explorar la música
+        </p>
+
+    </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================
+     ¿QUÉ ES LA MÚSICA?
+========================= -->
+
+<section id="que-es">
+
+    <h2 class="section-title">
+        ¿Qué es la música?
+    </h2>
+
+    <div class="section-line"></div>
+
+    <article class="article">
+
+        <p>
+            La música es una forma de expresión artística que utiliza
+            sonidos y silencios organizados para crear una obra.
+        </p>
+
+        <p>
+            Puede estar formada por diferentes elementos como la melodía,
+            el ritmo, la armonía, el timbre y otros recursos que permiten
+            organizar los sonidos.
+        </p>
+
+        <p>
+            La música puede ser interpretada mediante instrumentos
+            musicales o mediante la voz humana, y puede utilizarse para
+            expresar ideas, sentimientos y emociones.
+        </p>
+
+    </article>
+
+</section>
+
+
+<!-- =========================
+     COMPONENTES DE LA MÚSICA
+========================= -->
+
+<section id="componentes">
+
+    <h2 class="section-title">
+        Componentes de la música
+    </h2>
+
+    <div class="section-line"></div>
+
+
+    <div class="intro">
+
+        La música está formada por diferentes componentes que se combinan
+        para crear canciones y obras musicales. Los principales son la
+        <strong>
+            melodía, el ritmo, la armonía, el tempo, la dinámica,
+            el timbre, la forma y la textura.
+        </strong>
+
+    </div>
+
+
+    <!-- PRINCIPALES -->
+
+    <h3 class="subsection-title">
+        Componentes principales
+    </h3>
+
+    <div class="components">
+
+
+        <div class="card">
+
+            <h3>
+                Melodía
+            </h3>
+
+            <p>
+                La <strong>melodía</strong> es una serie de notas que
+                forman la parte principal de una canción y que podemos
+                cantar o tararear.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Ritmo
+            </h3>
+
+            <p>
+                El <strong>ritmo</strong> es la manera en que se organizan
+                los sonidos y los silencios, y ayuda a marcar el movimiento
+                de la música.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Armonía
+            </h3>
+
+            <p>
+                La <strong>armonía</strong> combina notas o acordes que
+                acompañan la melodía y producen relaciones entre los sonidos.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Tempo
+            </h3>
+
+            <p>
+                El <strong>tempo</strong> indica qué tan rápida o lenta es
+                una canción o una obra musical.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Dinámica
+            </h3>
+
+            <p>
+                La <strong>dinámica</strong> se refiere a la intensidad
+                de los sonidos, cuando la música suena fuerte o suave.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Timbre
+            </h3>
+
+            <p>
+                El <strong>timbre</strong> permite distinguir un sonido
+                de otro, como una guitarra, un piano, una batería o una voz.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Forma
+            </h3>
+
+            <p>
+                La <strong>forma</strong> es la manera en que se organizan
+                las diferentes secciones de una obra musical.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Textura
+            </h3>
+
+            <p>
+                La <strong>textura</strong> describe cómo se combinan y
+                relacionan las diferentes líneas, voces o partes musicales
+                de una obra.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- SECUNDARIOS -->
+
+    <h3 class="subsection-title">
+        Componentes secundarios
+    </h3>
+
+    <div class="components">
+
+
+        <div class="card secondary">
+
+            <h3>
+                Métrica
+            </h3>
+
+            <p>
+                La <strong>métrica</strong> organiza los pulsos de una obra
+                musical en grupos regulares que normalmente se representan
+                mediante compases.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Registro
+            </h3>
+
+            <p>
+                El <strong>registro</strong> indica la zona de altura en la
+                que se encuentran los sonidos, como grave, medio o agudo.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Articulación
+            </h3>
+
+            <p>
+                La <strong>articulación</strong> determina la manera en que
+                las notas se producen, conectan o separan durante la
+                interpretación.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Fraseo
+            </h3>
+
+            <p>
+                El <strong>fraseo</strong> es la manera de organizar e
+                interpretar las frases musicales para darles sentido
+                y expresión.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Acento
+            </h3>
+
+            <p>
+                El <strong>acento</strong> es el énfasis que recibe
+                determinado sonido o pulso dentro de una obra musical.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Pulsación
+            </h3>
+
+            <p>
+                La <strong>pulsación</strong> es una sucesión regular de
+                pulsos que sirve como referencia para mantener el tiempo
+                de una obra.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Ornamentación
+            </h3>
+
+            <p>
+                La <strong>ornamentación</strong> consiste en añadir
+                adornos musicales que embellecen o enriquecen una melodía.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Silencio
+            </h3>
+
+            <p>
+                El <strong>silencio</strong> representa un momento en el
+                que no se produce sonido y también forma parte de la
+                organización musical.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Altura
+            </h3>
+
+            <p>
+                La <strong>altura</strong> permite distinguir entre
+                sonidos graves y agudos según su frecuencia.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Duración
+            </h3>
+
+            <p>
+                La <strong>duración</strong> indica cuánto tiempo permanece
+                un sonido o un silencio.
+            </p>
+
+        </div>
+
+
+        <div class="card secondary">
+
+            <h3>
+                Intensidad
+            </h3>
+
+            <p>
+                La <strong>intensidad</strong> determina el nivel de fuerza
+                o volumen con el que se produce un sonido.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PREGUNTAS
+========================= -->
+
+<section id="preguntas">
+
+    <h2 class="section-title">
+        Preguntas
+    </h2>
+
+    <div class="section-line"></div>
+
+    <input
+        type="text"
+        id="buscador"
+        class="glossary-search"
+        placeholder="Buscar una pregunta..."
+    >
+
+
+    <div class="glossary" id="glosarioLista">
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es un pentagrama?
+            </h3>
+
+            <p>
+                El pentagrama es un conjunto de cinco líneas horizontales
+                y cuatro espacios donde se escriben los signos musicales.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es una nota musical?
+            </h3>
+
+            <p>
+                Una nota musical representa un sonido determinado dentro
+                de la escritura musical. Las notas principales son
+                do, re, mi, fa, sol, la y si.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es una clave musical?
+            </h3>
+
+            <p>
+                Una clave musical se coloca al principio del pentagrama
+                y permite establecer la altura de las notas escritas.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es un compás?
+            </h3>
+
+            <p>
+                El compás es una división de la música que organiza los
+                pulsos en grupos regulares.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es un pulso?
+            </h3>
+
+            <p>
+                El pulso es una sucesión regular de tiempos que sirve
+                como referencia para organizar el ritmo.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es un acorde?
+            </h3>
+
+            <p>
+                Un acorde es la combinación de dos o más notas que suenan
+                simultáneamente y que pueden cumplir distintas funciones
+                dentro de una composición.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es una escala musical?
+            </h3>
+
+            <p>
+                Una escala musical es una sucesión ordenada de notas
+                que sigue determinadas relaciones de altura.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es una partitura?
+            </h3>
+
+            <p>
+                Una partitura es una representación escrita de una obra
+                musical que utiliza diferentes símbolos para indicar
+                sonidos, ritmos, silencios y otros elementos.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es un silencio?
+            </h3>
+
+            <p>
+                Un silencio es la representación de una ausencia de sonido
+                durante una duración determinada.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es la altura?
+            </h3>
+
+            <p>
+                La altura es la característica que permite diferenciar
+                sonidos graves de sonidos agudos.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es la duración?
+            </h3>
+
+            <p>
+                La duración indica cuánto tiempo permanece un sonido
+                o un silencio.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es la intensidad?
+            </h3>
+
+            <p>
+                La intensidad indica el nivel de fuerza con el que
+                se produce un sonido.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es el timbre?
+            </h3>
+
+            <p>
+                El timbre es la característica que permite distinguir
+                sonidos producidos por diferentes instrumentos o voces,
+                incluso cuando tienen la misma altura.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es la textura musical?
+            </h3>
+
+            <p>
+                La textura musical describe la relación entre las diferentes
+                líneas melódicas o voces que participan en una obra.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es la forma musical?
+            </h3>
+
+            <p>
+                La forma musical es la organización de las diferentes
+                secciones de una composición.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es un instrumento musical?
+            </h3>
+
+            <p>
+                Un instrumento musical es un objeto diseñado o utilizado
+                para producir sonidos con los que se puede interpretar
+                música.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es la voz?
+            </h3>
+
+            <p>
+                La voz humana puede utilizarse como instrumento musical
+                para producir diferentes alturas, ritmos, intensidades
+                y timbres.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es una composición musical?
+            </h3>
+
+            <p>
+                Una composición musical es una obra creada mediante la
+                organización de sonidos, silencios y diferentes elementos
+                musicales.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es la interpretación musical?
+            </h3>
+
+            <p>
+                La interpretación musical es el proceso de ejecutar una
+                obra mediante la voz o instrumentos, aplicando las
+                indicaciones de la partitura y decisiones expresivas.
+            </p>
+
+        </div>
+
+
+        <div class="term">
+
+            <h3>
+                ¿Qué es un género musical?
+            </h3>
+
+            <p>
+                Un género musical es una categoría que reúne obras que
+                comparten determinadas características musicales,
+                culturales o históricas.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PENTAGRAMA
+========================= -->
+
+<section id="pentagrama">
+
+    <h2 class="section-title">
+        ¿Qué es el pentagrama?
+    </h2>
+
+    <div class="section-line"></div>
+
+
+    <article class="article pentagrama-intro">
+
+        <p>
+            El <strong>pentagrama</strong> es la estructura básica utilizada
+            para representar gráficamente gran parte de la música escrita.
+            Está formado por cinco líneas horizontales y cuatro espacios.
+        </p>
+
+        <p>
+            En él pueden colocarse notas, silencios, claves, compases y
+            otros símbolos que permiten representar una composición musical.
+        </p>
+
+    </article>
+
+
+    <div class="pentagrama-grid">
+
+
+        <div class="card">
+
+            <h3>
+                5 líneas
+            </h3>
+
+            <p>
+                El pentagrama está formado por cinco líneas horizontales
+                que permiten establecer diferentes alturas.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                4 espacios
+            </h3>
+
+            <p>
+                Entre las cinco líneas existen cuatro espacios donde
+                también pueden colocarse notas musicales.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Claves musicales
+            </h3>
+
+            <p>
+                Las claves indican cómo deben interpretarse las alturas
+                de las notas dentro del pentagrama.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Notas
+            </h3>
+
+            <p>
+                Las notas se colocan sobre las líneas o espacios para
+                representar diferentes alturas sonoras.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Partitura
+            </h3>
+
+            <p>
+                La partitura utiliza el pentagrama junto con diferentes
+                símbolos para representar una obra musical.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        <strong>Musicalia</strong> · Investigación musical
+    </p>
+
+    <p>
+        Conceptos, componentes y escritura musical
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     BUSCADOR
+========================= -->
+
+<script>
+
+const buscador = document.getElementById("buscador");
+
+const terminos = document.querySelectorAll(".term");
+
+
+buscador.addEventListener("input", function(){
+
+    const texto = this.value.toLowerCase().trim();
+
+
+    terminos.forEach(function(term){
+
+        const contenido =
+            term.textContent.toLowerCase();
+
+
+        if(contenido.includes(texto)){
+
+            term.style.display = "";
+
+        }else{
+
+            term.style.display = "none";
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>
